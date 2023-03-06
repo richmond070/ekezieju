@@ -468,10 +468,10 @@ a:hover {
     .project .project-text {
         position: relative;
         z-index: 3;
-        transform: translateY(140px);
+        transform: translateY(145px);
         background-color: rgba(0, 0, 0, 0.61);
-        padding: 4vw;
-
+        padding: 2vw;
+    
     }
 
     .project-text h3 {
@@ -481,8 +481,8 @@ a:hover {
 
     .project-text button {
         transform: translateX(150px);
-        margin-top: 1vw;
-        font-size: 3vw;
+        margin-top: 2vw;
+        font-size: 5vw;
         background-color: rgba(255, 172, 70, 0.966);
         border-style: none;
         padding: 1vw;
