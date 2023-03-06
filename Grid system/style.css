@@ -1,0 +1,102 @@
+*{
+    box-sizing: border-box;
+}
+
+body, html {
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(202, 58, 30));
+}
+
+img {
+    height: 70%;
+}
+
+
+.team-area {
+    display: grid;
+    grid-template-columns:repeat(auto-fill, 20% 40%);
+    grid-gap: 20px;
+    grid-template-rows: repeat(3, 500px);
+    grid-template-columns: repeat(3, 400px);
+    grid-auto-rows: 20em;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.single-team {
+    width: 360px;
+    height: 400px;
+    padding: 24px;
+    background-color:blanchedalmond;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: 6s ease-out;
+    box-shadow: brown;
+}
+
+.single-team:hover {
+    transform: translateY(15px);
+}
+
+.single-team:hover::before {
+    opacity: 1;
+}
+
+.single-team:hover .team-text {
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.single-team::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left:0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom (to top, rgb(244, 50, 25), transparent));
+    transition: 2s;
+    opacity: 0;
+}
+
+.single-team> img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.single-team .team-text {
+    position: relative;
+    z-index: 3;
+    transform: translateY(60px);
+    transition: 0.5;
+}
+
+.team-text {
+    visibility: hidden;
+}
+
+.team-text> h2 {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color:#ffff;
+}
+
+.team-text > p {
+    letter-spacing: 2px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 8px;
+    color: #ffff;
+}
+
