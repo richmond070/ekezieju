@@ -322,6 +322,12 @@ a:hover {
         position: relative;
         background-position: center;
         background-size: cover;
+        background-color: #000;
+        color: #fff;
+        max-width: 100%;
+        max-height: 100vh;
+        overflow-x: hidden;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
 
     .primary-navigation {
@@ -334,8 +340,8 @@ a:hover {
         flex-direction: column;
         padding: min(30vh, 10rem) 2em;
 
-        background: hsl (0 0% 100% / 0.5);
-        backdrop-filter: blur(0.5rem);
+        background: hsl (0 0% 100% / 1);
+        backdrop-filter: blur(5rem);
 
         transform: translateX(100%);
 
@@ -351,7 +357,8 @@ a:hover {
         position: fixed;
         z-index: 9999;
         background-color: url("https://www.flaticon.com/premium-icon/navigation_2811759");
-        width: 3rem;
+        width: 5rem;
+        height: 3rem;
         aspect-ratio: 3;
         top: 2rem;
         right: 2rem;
@@ -370,7 +377,7 @@ a:hover {
         color: #fff;
         background-color: hsl(240, 7%, 15%);
         padding: 3vw;
-        height: 120vw;
+        height: 100vh;
     }
 
     .first-column img {
