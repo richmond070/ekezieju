@@ -357,8 +357,8 @@ a:hover {
         position: fixed;
         z-index: 9999;
         background-color: url("https://www.flaticon.com/premium-icon/navigation_2811759");
-        width: 5rem;
-        height: 3rem;
+        width: 3rem;
+        height: 1rem;
         aspect-ratio: 3;
         top: 2rem;
         right: 2rem;
