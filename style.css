@@ -466,7 +466,7 @@ a:hover {
 
     /*projects*/
     .project-area {
-        padding-top: 5vw;
+        padding-top: 10vw;
     }
 
     .project-area h2 {
@@ -479,12 +479,13 @@ a:hover {
         grid-template-columns: auto;
         gap: var(--gap, 2rem);
         justify-content: center;
+        margin: 10vw;
     }
 
     .project .project-text {
         position: relative;
         z-index: 3;
-        transform: translateY(145px);
+        transform: translateY(170px);
         background-color: rgba(0, 0, 0, 0.61);
         padding: 2vw;
     
@@ -493,6 +494,7 @@ a:hover {
     .project-text h3 {
         color: #fff;
         font-size: 4vw;
+        margin-left: 2vw;
     }
 
     .project-text button {
