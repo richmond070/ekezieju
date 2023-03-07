@@ -8,6 +8,8 @@ body {
     position: relative;
     background-position: center;
     background-size: cover;
+    background-color: #000;
+    color: #fff;
     max-width: 100%;
     max-height: 100vh;
     overflow-x: hidden;
@@ -81,11 +83,12 @@ nav a {
     color: #fff;
     background-color: hsl(240, 7%, 15%);
     padding: 3vw;
+    height: 45vw;
 }
 
 .first-column img {
     opacity: 0.5;
-    height: 10%;
+    height: 30vw;
     width: 20vw;
 }
 
@@ -125,10 +128,11 @@ nav a {
     display: grid;
     grid-template-columns: 60% 40%;
     padding: 3vw;
+    color: #fff;
 }
 
 .about {
-    border-right: 3px solid #000;
+    border-right: 3px solid #fff;
 }
 
 .about h2 {
@@ -140,6 +144,7 @@ nav a {
 .about p {
     font-size: 1.5vw;
     padding: 2vw;
+    word-spacing: 5px;
 }
 
 .about button {
@@ -167,6 +172,7 @@ nav a {
 /*projects*/
 .project-area {
     padding-top: 2vw;
+    margin-top:5vw ;
 }
 
 .project-area h2 {
@@ -363,7 +369,8 @@ a:hover {
         justify-content: center;
         color: #fff;
         background-color: hsl(240, 7%, 15%);
-        padding: 40vw;
+        padding: 3vw;
+        height: 120vw;
     }
 
     .first-column img {
@@ -371,12 +378,14 @@ a:hover {
         height: 60vw;
         width: 70vw;
         padding-left: 10vw;
+        align-self: center;
     }
 
     .first-content {
         padding: 10vw;
         transform: translateX(-20vw);
         border-right: 5px solid #fff;
+        align-self: center;
     }
 
     .first-content h1 {
@@ -534,7 +543,7 @@ a:hover {
     }
 
     .footer a {
-        color: #000;
+        color: #fff;
         text-decoration: none;
     }
 }
