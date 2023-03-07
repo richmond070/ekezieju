@@ -482,6 +482,10 @@ a:hover {
         margin: 10vw;
     }
 
+    .project{
+        margin: 3vw;
+    }
+
     .project .project-text {
         position: relative;
         z-index: 3;
