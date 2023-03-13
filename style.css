@@ -162,7 +162,10 @@ nav a {
 }
 
 .skills ul {
-    padding-left: 3vw;
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 1vw;
+    padding: 3vw;
     list-style: inside;
     font-size: 1.5vw;
 }
@@ -178,6 +181,8 @@ nav a {
 .project-area h2 {
     font-size: 3vw;
     text-align: center;
+    text-transform: uppercase;
+    margin-top: 2vh;
 }
 
 .project-space {
@@ -204,17 +209,21 @@ nav a {
     object-fit: cover;
 }
 
-.project .project-text {
+.project-text {
+    display: grid;
+    grid-template-columns: auto;
+    grid-row-gap: 0.5vw;
     position: relative;
+    height: 100%;
+    width: 100%;
     z-index: 3;
-    transform: translateY(80px);
     background-color: rgba(0, 0, 0, 0.61);
     padding: 2vw;
 
 }
 
 a {
-    color: rgb(13, 13, 14);
+    color: rgb(8, 8, 8);
 }
 
 a:hover {
@@ -223,11 +232,13 @@ a:hover {
 
 .project-text h3 {
     color: #fff;
-    font-size: 1.5vw;
+    font-size: 1.7vw;
 }
 
 .project-text button {
-    transform: translateX(150px);
+    width: 50%;
+    display: flex;
+    flex-direction: left;
     margin-top: 1vw;
     font-size: 1.5vw;
     background-color: rgba(255, 172, 70, 0.966);
@@ -240,7 +251,55 @@ a:hover {
     padding: 0.5vw;
 }
 
-.col-two button {
+/*blog section*/
+.blog-post {
+    margin-top: 2vh;
+    margin-bottom: 3vw;
+}
+
+.blog-post h2 {
+    font-size: 3vw;
+    text-transform: uppercase;
+    word-spacing: 1vw;
+    text-align: center;
+}
+
+.blog-content{
+    margin: 1vw;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-img {
+    padding-top: 3vw;
+    width: 400px;
+    height: 200px;
+    background-color: blanchedalmond;
+    position: relative;
+}
+
+.article-img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: fill;
+}
+
+.article button {
+    background-color: rgba(255, 172, 70, 0.966);
+    font-size: 1em;
+    margin-top: 1vw;
+    width: 100%;
+    padding: 0.5vw;
+    border-radius: 10px;
+    position: relative;
+    z-index: 3;
+}
+
+/*.col-two button {
     font-size: 1.5vw;
     border-style: none;
     background-color: transparent;
@@ -269,7 +328,7 @@ a:hover {
 .col-one p {
     font-size: 1.5vw;
 }
-
+*/
 .info-box{
     display: flex;
     flex-direction: column;
@@ -297,7 +356,7 @@ a:hover {
 
 .footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 3vw;
 }
 
@@ -311,7 +370,7 @@ a:hover {
 }
 
 .footer a {
-    color: #000;
+    color: #faf8f8;
     text-decoration: none;
 }
 
@@ -458,9 +517,12 @@ a:hover {
     }
 
     .skills ul {
-        padding-left: 3vw;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-row-gap: 2vw;
+        padding: 3vw;
         list-style: inside;
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
 
@@ -479,41 +541,96 @@ a:hover {
         grid-template-columns: auto;
         gap: var(--gap, 2rem);
         justify-content: center;
-        margin: 10vw;
+        margin: 5vw;
     }
 
     .project{
-        margin: 3vw;
+        margin: vw;
     }
 
-    .project .project-text {
-        position: relative;
+    .project-text {
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 1vw;
+        /*position: absolute;*/
+        height: 100%;
+        width: 100%;
         z-index: 3;
-        transform: translateY(170px);
         background-color: rgba(0, 0, 0, 0.61);
-        padding: 2vw;
-    
+        padding: 3vw;
     }
 
     .project-text h3 {
         color: #fff;
-        font-size: 4vw;
+        font-size: 5vw;
         margin-left: 2vw;
+        text-align:left;
     }
 
     .project-text button {
-        transform: translateX(140px);
-        margin-top: 1vw;
+        width: 40%;
+        height: 50%;
+        margin: 1vw;
         font-size: 4vw;
+        font-weight: 700;
+        text-align: center;
         background-color: rgba(255, 172, 70, 0.966);
         border-style: none;
-        padding: 1vw;
-
+        padding:1vw;
     }
 
     .project-text button:hover {
         background-color: rgba(255, 172, 70, 0.24);
         padding: 1vw;
+    }
+
+    /*blog section*/
+    .blog-post {
+        margin-top: 2em;
+        margin-bottom: 3vw;
+    }
+
+    .blog-post h2 {
+        font-size: 5vw;
+        text-transform: uppercase;
+        word-spacing: 1vw;
+        text-align: center;
+    }
+
+    .blog-content{
+        margin: 1em;
+        padding: 0;
+        display: grid;
+        grid-template-columns: auto;
+        grid-row-gap: 3rem;  
+        justify-content: center; 
+    }   
+    .article-img {
+        padding-top: 3vw;
+        width: 400px;
+        height: 200px;
+        background-color: blanchedalmond;
+        position: relative;
+    }
+
+    .article-img img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: fill;
+    }
+
+    .article button {
+        background-color: rgba(255, 172, 70, 0.966);
+        font-size: 1em;
+        margin-top: 2vw;
+        width: 50%;
+        padding: 0.5vw;
+        border-radius: 10px;
+        position: relative;
+        z-index: 3;
     }
 
     .info-box{
@@ -544,7 +661,7 @@ a:hover {
     /*footer*/
     .footer {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         padding: 4vw;
         background-color: rgba(0, 0, 0, 0.753);
     }
