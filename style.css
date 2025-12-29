@@ -823,10 +823,12 @@ a {
     }
 
     .hero-image {
+        display: none;
         flex: 0 0 300px;
     }
 
     .hero-image img {
+        display: none;
         height: 400px;
     }
 
