@@ -1,0 +1,144 @@
+import { fetchRSS, sanitizeHTML } from './rssClient.js';
+
+// Mobile Navigation Toggle
+const primaryNav = document.querySelector(".primary-navigation");
+const navToggle = document.querySelector(".mobile-nav-toggle");
+
+if (navToggle) {
+    navToggle.addEventListener("click", () => {
+        const visibility = primaryNav.getAttribute("data-visible");
+        
+        if (visibility === "false") {
+            primaryNav.setAttribute("data-visible", "true");
+            navToggle.setAttribute("aria-expanded", "true");
+        } else {
+            primaryNav.setAttribute("data-visible", "false");
+            navToggle.setAttribute("aria-expanded", "false");
+        }
+    });
+}
+
+// Smooth Scrolling for Navigation Links
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        // Close mobile menu if open
+        if (primaryNav.getAttribute("data-visible") === "true") {
+            primaryNav.setAttribute("data-visible", "false");
+            navToggle.setAttribute("aria-expanded", "false");
+        }
+        
+        // Scroll to section
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Update active link
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+
+// Active Navigation on Scroll
+const sections = document.querySelectorAll('section[id]');
+
+function highlightNavOnScroll() {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+window.addEventListener('scroll', highlightNavOnScroll);
+
+async function fetchMediumPosts() {
+    const MEDIUM_RSS = 'https://medium.com/feed/@ekezieju';
+    const blogContainer = document.getElementById('blog-container');
+
+    try {
+        const posts = await fetchRSS({
+            rssUrl: MEDIUM_RSS,
+            limit: 3,
+            cacheKey: 'medium_posts'
+        });
+
+        if (!posts || posts.length === 0) {
+            throw new Error('No posts returned');
+        }
+
+        blogContainer.innerHTML = '';
+
+        posts.forEach(post => {
+            // ✅ Normalize content safely
+            const rawHTML =
+                post.content ||
+                post.description ||
+                '';
+
+            const sanitized = sanitizeHTML(rawHTML);
+
+            // ✅ Image handling (RSS2JSON already provides thumbnail)
+            const imgSrc =
+                post.thumbnail ||
+                sanitized?.querySelector('img')?.src ||
+                'image/default-blog.png';
+
+            const textContent =
+                sanitized?.textContent
+                    ?.trim()
+                    .substring(0, 150) + '…';
+
+
+            const postTitle =
+                post.title || post.link
+                sanitized?.postTitle
+                    ?.trim()
+                    .substring(0, 40) + '…';
+
+            // ✅ Defensive fallback
+            if (!post.title || !post.link) return;
+
+            const blogCard = document.createElement('div');
+            blogCard.className = 'blog-card';
+            blogCard.innerHTML = `
+                <div class="blog-image">
+                    <img src="${imgSrc}" alt="${postTitle}" loading="lazy">
+                </div>
+                <div class="blog-info">
+                    <h3>${postTitle}</h3>
+                    <p>${textContent || 'Read the full article on Medium.'}</p>
+                    <a href="${post.link}" target="_blank" rel="noopener" class="blog-link">
+                        Read Article <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            `;
+
+            blogContainer.appendChild(blogCard);
+        });
+
+        console.log('✅ Medium posts rendered successfully');
+
+    } catch (err) {
+        console.error('❌ Error fetching Medium posts:', err);
+        console.log('Using fallback static posts...');
+    }
+}
+
+fetchMediumPosts();
